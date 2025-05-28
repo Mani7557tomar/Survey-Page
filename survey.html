@@ -45,6 +45,8 @@
 <div class="popup" id="popup">
   <div class="popup-header">Customer Interest Survey</div>
   <form id="surveyForm">
+    <input type="hidden" name="sheetName" value="Survey" />
+    
     <input type="text" name="name" placeholder="Full Name" required pattern="[A-Za-z ]+" />
     <input type="tel" name="phone" placeholder="Phone Number" required pattern="[0-9]{10}" />
     <input type="text" name="building" placeholder="Your Address or Building" required />
@@ -101,9 +103,9 @@
       body: formData
     })
     .then(() => {
-      setTimeout(() => {
-        window.location.href = "thankyou.html";
-      }, 500);
+      alert("Thank you! Your response has been recorded.");
+      this.reset();
+      closePopup();
     })
     .catch(() => {
       alert("Something went wrong. Please try again.");
