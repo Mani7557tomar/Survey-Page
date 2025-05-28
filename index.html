@@ -5,24 +5,78 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>The Food Corner - Customer Survey</title>
   <style>
-    body { margin: 0; font-family: Arial, sans-serif; color: black; }
+    body { margin: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: black; background: #f9f9f9; }
     .video-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1; }
     .video-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.7); z-index: -0.5; }
-    .hero { position: relative; text-align: center; color: white; padding: 50px 20px; }
-    .logo { width: 200px; margin: 0.5px auto; display: block; }
-    .hero h1 { font-size: 4em; margin: 0; }
-    .hero p { font-size: 1.2em; margin: 10px 0; }
-    .cta button { background: white; color: black; padding: 10px 20px; font-size: 1.2em; border: none; border-radius: 50px; cursor: pointer; margin-top: 20px; }
-    .cta button:hover { background: #1500ff; color: white; }
-    .popup, .overlay { display: none; position: fixed; z-index: 999; }
-    .overlay { top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); }
-    .popup { top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; padding: 20px; max-width: 600px; width: 90%; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
-    .popup-header { font-size: 2em; margin-bottom: 20px; text-align: center; color: black; }
-    .popup form { display: flex; flex-direction: column; gap: 15px; }
-    .popup input, .popup select, .popup button { font-size: 1em; padding: 10px; border-radius: 4px; }
-    .popup input, .popup select { border: 1px solid #ccc; }
-    .popup button { background: #6200ea; color: white; border: none; cursor: pointer; }
-    .popup button:hover { background: #4500b5; }
+    .hero { text-align: center; color: white; padding: 60px 20px 40px; }
+    .logo { width: 160px; margin-bottom: 10px; }
+    .hero h1 { font-size: 3em; margin: 10px 0; }
+    .hero p { font-size: 1.2em; max-width: 600px; margin: auto; line-height: 1.6; }
+    .cta button {
+      background: white;
+      color: black;
+      padding: 12px 30px;
+      font-size: 1.1em;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      margin-top: 25px;
+      transition: all 0.3s ease;
+    }
+    .cta button:hover {
+      background: #1500ff;
+      color: white;
+    }
+
+    .overlay, .popup { display: none; position: fixed; z-index: 999; }
+    .overlay {
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0,0,0,0.5);
+    }
+    .popup {
+      top: 50%; left: 50%; transform: translate(-50%, -50%);
+      background: white;
+      padding: 30px;
+      max-width: 600px;
+      width: 90%;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+    .popup-header {
+      font-size: 1.8em;
+      margin-bottom: 20px;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    .popup form {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+    .popup input, .popup select, .popup button {
+      font-size: 1em;
+      padding: 12px;
+      border-radius: 6px;
+    }
+    .popup input, .popup select {
+      border: 1px solid #ccc;
+    }
+    .popup label {
+      font-weight: bold;
+      margin-bottom: 5px;
+      color: #333;
+    }
+    .popup button {
+      background: #6200ea;
+      color: white;
+      border: none;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    .popup button:hover {
+      background: #4500b5;
+    }
   </style>
 </head>
 <body>
@@ -35,7 +89,7 @@
 <div class="hero">
   <img src="assets/file.png" alt="The Food Corner Logo" class="logo">
   <h1>THE FOOD CORNER</h1>
-  <p>We’re planning to launch Breakfast and Lunch services.<br> Help us serve you better by filling out this quick survey.</p>
+  <p>We’re planning to launch Breakfast and Lunch services.<br><strong>Please help us serve you better by filling out this quick survey.</strong></p>
   <div class="cta">
     <button onclick="openPopup()">Start Survey</button>
   </div>
@@ -46,12 +100,17 @@
   <div class="popup-header">Customer Interest Survey</div>
   <form id="surveyForm">
     <input type="hidden" name="sheetName" value="Survey" />
-    
-    <input type="text" name="name" placeholder="Full Name" required pattern="[A-Za-z ]+" />
-    <input type="tel" name="phone" placeholder="Phone Number" required pattern="[0-9]{10}" />
-    <input type="text" name="building" placeholder="Your Address or Building" required />
 
-    <label>Would you be interested in our Breakfast service?</label>
+    <label>👤 Your Full Name:</label>
+    <input type="text" name="name" placeholder="Full Name" required pattern="[A-Za-z ]+" />
+
+    <label>📞 Phone Number:</label>
+    <input type="tel" name="phone" placeholder="10-digit Phone Number" required pattern="[0-9]{10}" />
+
+    <label>🏢 Your Address or Building Name:</label>
+    <input type="text" name="building" placeholder="E.g., FIEE Building 2nd Floor" required />
+
+    <label>🍳 Would you be interested in our <strong>Breakfast</strong> service?</label>
     <select name="breakfast_interest" required>
       <option value="" disabled selected>Select an option</option>
       <option value="Yes">Yes</option>
@@ -59,7 +118,7 @@
       <option value="No">No</option>
     </select>
 
-    <label>Would you be interested in our Lunch service?</label>
+    <label>🍛 Would you be interested in our <strong>Lunch</strong> service?</label>
     <select name="lunch_interest" required>
       <option value="" disabled selected>Select an option</option>
       <option value="Yes">Yes</option>
@@ -67,7 +126,7 @@
       <option value="No">No</option>
     </select>
 
-    <label>Are you interested in Juices/Drinks/Chocolates?</label>
+    <label>🥤 Are you interested in <strong>Juices / Drinks / Chocolates</strong>?</label>
     <select name="drinks_interest" required>
       <option value="" disabled selected>Select an option</option>
       <option value="Yes">Yes</option>
@@ -75,8 +134,8 @@
       <option value="No">No</option>
     </select>
 
-    <label>Any specific food item you'd love to have?</label>
-    <input type="text" name="specific_item" placeholder="Optional" />
+    <label>🍽️ Any specific food item you'd love to have?</label>
+    <input type="text" name="specific_item" placeholder="Optional suggestion" />
 
     <button type="submit">Submit</button>
   </form>
@@ -95,7 +154,8 @@
 
   document.getElementById("surveyForm").addEventListener("submit", function(e) {
     e.preventDefault();
-    const formData = new FormData(this);
+    const form = this;
+    const formData = new FormData(form);
     const scriptURL = "https://script.google.com/macros/s/AKfycbzfkIqJ75kTsSbhvEGm5PfjVVoFW0RW238aVbWMDBlS7pr9X0sC5N21AV2C-q_xTCI/exec";
 
     fetch(scriptURL, {
@@ -103,12 +163,14 @@
       body: formData
     })
     .then(() => {
-      alert("Thank you! Your response has been recorded.");
-      this.reset();
-      closePopup();
+      setTimeout(() => {
+        alert("✅ Thank you! Your response has been recorded.");
+        form.reset();
+        closePopup();
+      }, 200); // short delay ensures smooth popup close before alert
     })
     .catch(() => {
-      alert("Something went wrong. Please try again.");
+      alert("⚠️ Something went wrong. Please try again.");
     });
   });
 </script>
