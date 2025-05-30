@@ -9,39 +9,51 @@
     .video-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1; }
     .video-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.7); z-index: -0.5; }
     .hero { position: relative; text-align: center; color: white; padding: 50px 20px; }
-    .logo { width: 100px; margin: 0.5px auto; display: block; }
+    .logo { width: 200px; margin: 0.5px auto; display: block; }
     .hero h1 { font-size: 4em; margin: 0; }
     .hero p { font-size: 1.2em; margin: 10px 0; }
     .cta button { background: white; color: black; padding: 10px 20px; font-size: 1.2em; border: none; border-radius: 50px; cursor: pointer; margin-top: 20px; }
     .cta button:hover { background: #1500ff; color: white; }
-    .popup, .overlay { display: none; position: fixed; z-index: 999; }
-    .overlay { top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); }
-    .popup { top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; padding: 20px; max-width: 600px; width: 90%; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+
+    .overlay, .popup, .confirmation { display: none; position: fixed; z-index: 999; }
+    .overlay { top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 998; }
+
+    .popup, .confirmation {
+      top: 50%; left: 50%; transform: translate(-50%, -50%);
+      background: white; padding: 20px; max-width: 600px; width: 90%; border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
     .popup-header { font-size: 2em; margin-bottom: 20px; text-align: center; color: black; }
     .popup form { display: flex; flex-direction: column; gap: 15px; }
     .popup input, .popup select, .popup button { font-size: 1em; padding: 10px; border-radius: 4px; }
     .popup input, .popup select { border: 1px solid #ccc; }
     .popup button { background: #6200ea; color: white; border: none; cursor: pointer; }
     .popup button:hover { background: #4500b5; }
+
+    .confirmation { text-align: center; color: black; }
+    .confirmation h2 { margin-bottom: 10px; color: #4CAF50; }
+    .confirmation button { margin-top: 20px; padding: 10px 20px; font-size: 1em; background: #4CAF50; color: white; border: none; border-radius: 5px; cursor: pointer; }
+    .confirmation button:hover { background: #388E3C; }
   </style>
 </head>
 <body>
 
 <video class="video-bg" autoplay muted loop>
-  <source src="Assets/2894881-uhd_3840_2160_24fps (1).mp4" type="video/mp4">
+  <source src="assets/2894881-uhd_3840_2160_24fps (1).mp4" type="video/mp4">
 </video>
 <div class="video-overlay"></div>
 
 <div class="hero">
-  <img src="Assets/file.png" alt="The Food Corner Logo" class="logo">
+  <img src="assets/file.png" alt="The Food Corner Logo" class="logo">
   <h1>THE FOOD CORNER</h1>
-  <p>We’re planning to launch Breakfast and Lunch services.<br> Help us serve you better by filling out this quick survey.</p>
+  <p>We’re planning to launch Breakfast and Lunch services.<br><strong>Help us serve you better by filling out this quick survey.</strong></p>
   <div class="cta">
     <button onclick="openPopup()">Start Survey</button>
   </div>
 </div>
 
-<div class="overlay" id="overlay" onclick="closePopup()"></div>
+<div class="overlay" id="overlay"></div>
 <div class="popup" id="popup">
   <div class="popup-header">Customer Interest Survey</div>
   <form id="surveyForm">
@@ -51,7 +63,7 @@
     <input type="tel" name="phone" placeholder="Phone Number" required pattern="[0-9]{10}" />
     <input type="text" name="building" placeholder="Your Address or Building" required />
 
-    <label>Would you be interested in our Breakfast service?</label>
+    <label><strong>Would you be interested in our Breakfast service?</strong></label>
     <select name="breakfast_interest" required>
       <option value="" disabled selected>Select an option</option>
       <option value="Yes">Yes</option>
@@ -59,7 +71,7 @@
       <option value="No">No</option>
     </select>
 
-    <label>Would you be interested in our Lunch service?</label>
+    <label><strong>Would you be interested in our Lunch service?</strong></label>
     <select name="lunch_interest" required>
       <option value="" disabled selected>Select an option</option>
       <option value="Yes">Yes</option>
@@ -67,7 +79,7 @@
       <option value="No">No</option>
     </select>
 
-    <label>Are you interested in Juices/Drinks/Chocolates?</label>
+    <label><strong>Are you interested in Juices/Drinks/Chocolates?</strong></label>
     <select name="drinks_interest" required>
       <option value="" disabled selected>Select an option</option>
       <option value="Yes">Yes</option>
@@ -75,11 +87,17 @@
       <option value="No">No</option>
     </select>
 
-    <label>Any specific food item you'd love to have?</label>
+    <label><strong>Any specific food item you'd love to have?</strong></label>
     <input type="text" name="specific_item" placeholder="Optional" />
 
     <button type="submit">Submit</button>
   </form>
+</div>
+
+<div class="confirmation" id="confirmation">
+  <h2>Thank you!</h2>
+  <p>Your response has been recorded.</p>
+  <button onclick="closeConfirmation()">Close</button>
 </div>
 
 <script>
@@ -93,6 +111,11 @@
     document.getElementById("overlay").style.display = "none";
   }
 
+  function closeConfirmation() {
+    document.getElementById("confirmation").style.display = "none";
+    document.getElementById("overlay").style.display = "none";
+  }
+
   document.getElementById("surveyForm").addEventListener("submit", function(e) {
     e.preventDefault();
     const formData = new FormData(this);
@@ -103,9 +126,9 @@
       body: formData
     })
     .then(() => {
-      alert("Thank you! Your response has been recorded.");
       this.reset();
-      closePopup();
+      document.getElementById("popup").style.display = "none";
+      document.getElementById("confirmation").style.display = "block";
     })
     .catch(() => {
       alert("Something went wrong. Please try again.");
