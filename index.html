@@ -108,7 +108,7 @@
             <label for="address">Your Address or Building</label>
             <input type="text" id="address" name="address" placeholder="E.g., A-50, FIEE Complex">
 
-            <label for="breakfast">Would you be interested in our Breakfast service?</label>
+            <label for="breakfast">Would you be interested in our Breakfast service? <span style="color: red;">*</span></label>
             <select id="breakfast" name="breakfast" required>
                 <option value="">Select an option</option>
                 <option value="Yes">Yes</option>
@@ -116,7 +116,7 @@
                 <option value="Maybe">Maybe</option>
             </select>
 
-            <label for="lunch">Would you be interested in our Lunch service?</label>
+            <label for="lunch">Would you be interested in our Lunch service? <span style="color: red;">*</span></label>
             <select id="lunch" name="lunch" required>
                 <option value="">Select an option</option>
                 <option value="Yes">Yes</option>
@@ -132,17 +132,17 @@
     </div>
 
     <script>
-document.addEventListener("DOMContentLoaded", () => {
-    const form = document.getElementById("survey-form");
-    form.addEventListener("submit", function(e) {
-        e.preventDefault(); // Prevent default form submission
+        document.addEventListener("DOMContentLoaded", () => {
+            const form = document.getElementById("survey-form");
+            form.addEventListener("submit", function(e) {
+                e.preventDefault(); // Prevent the default form submission
 
-        // Optional: Send data to Google Sheets here if needed
+                // OPTIONAL: Here you can add code to submit the data to Google Sheets if needed
 
-        // Redirect to thankyou.html
-        window.location.href = "thankyou.html";
-    });
-});
+                // Redirect to the thank you page
+                window.location.href = "thankyou.html";
+            });
+        });
     </script>
 </body>
 </html>
