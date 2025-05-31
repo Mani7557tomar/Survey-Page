@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Food Corner - Customer Interest Survey</title>
+    <title>Thank You!</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;100&display=swap" rel="stylesheet">
     <style>
         body {
@@ -12,121 +12,44 @@
             margin: 0;
             padding: 0;
             color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
         }
-        .container {
-            max-width: 500px;
-            margin: 50px auto;
+        .message-box {
             background: #fff;
-            padding: 30px;
+            padding: 40px;
             border-radius: 15px;
             box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-        }
-        .logo {
-            display: block;
-            margin: 0 auto 20px;
             text-align: center;
-        }
-        .logo img {
-            max-width: 50px;
         }
         h1 {
-            text-align: center;
-            font-size: 1.8rem;
-            margin-bottom: 10px;
-            color: #333;
+            color: #ff6a88;
         }
-        label {
-            display: block;
-            font-weight: 600;
-            margin-top: 15px;
-            margin-bottom: 5px;
+        p {
+            font-size: 1.2rem;
         }
-        input[type="text"], input[type="tel"], textarea, select {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            box-sizing: border-box;
-            font-size: 1rem;
-            background: #f9f9f9;
-            transition: border-color 0.3s;
-        }
-        input[type="text"]:focus,
-        input[type="tel"]:focus,
-        textarea:focus,
-        select:focus {
-            border-color: #ff6a88;
-            outline: none;
-        }
-        .submit-btn {
-            width: 100%;
-            background: #ff6a88;
-            color: #fff;
-            border: none;
-            padding: 14px;
-            font-size: 1rem;
-            border-radius: 8px;
-            cursor: pointer;
+        a {
+            display: inline-block;
             margin-top: 20px;
+            text-decoration: none;
+            color: #fff;
+            background: #ff6a88;
+            padding: 10px 20px;
+            border-radius: 8px;
             transition: background 0.3s;
         }
-        .submit-btn:hover {
+        a:hover {
             background: #ff4f70;
-        }
-        @media (max-width: 500px) {
-            .container {
-                margin: 20px;
-                padding: 20px;
-            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="logo">
-            <img src="Assets/file.png" alt="The Food Corner Logo">
-        </div>
-        <h1>Customer Interest Survey</h1>
-        <form id="interest-form">
-            <label for="name">Full Name</label>
-            <input type="text" id="name" name="name" placeholder="Your name" required>
-
-            <label for="phone">Phone Number</label>
-            <input type="tel" id="phone" name="phone" placeholder="Your phone number" required>
-
-            <label for="address">Your Address or Building</label>
-            <input type="text" id="address" name="address" placeholder="E.g., A-50, FIEE Complex">
-
-            <label for="breakfast">Would you be interested in our Breakfast service?</label>
-            <select id="breakfast" name="breakfast">
-                <option value="">Select an option</option>
-                <option value="Yes">Yes</option>
-                <option value="No">No</option>
-                <option value="Maybe">Maybe</option>
-            </select>
-
-            <label for="lunch">Would you be interested in our Lunch service?</label>
-            <select id="lunch" name="lunch">
-                <option value="">Select an option</option>
-                <option value="Yes">Yes</option>
-                <option value="No">No</option>
-                <option value="Maybe">Maybe</option>
-            </select>
-
-            <label for="food-item">Any specific food item you'd love to have?</label>
-            <textarea id="food-item" name="food-item" rows="3" placeholder="Optional"></textarea>
-
-            <button type="submit" class="submit-btn">Submit</button>
-        </form>
+    <div class="message-box">
+        <h1>Thank You!</h1>
+        <p>We appreciate your interest. We'll get in touch with you soon.</p>
+        <a href="index.html">Go Back Home</a>
     </div>
-
-    <script>
-        document.getElementById('interest-form').addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevent default form submission
-            // OPTIONAL: collect form data and send to Google Sheets here using fetch() or FormSubmit etc.
-            // For now, we just redirect
-            window.location.href = 'thankyou.html';
-        });
-    </script>
 </body>
 </html>
