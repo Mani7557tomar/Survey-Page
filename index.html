@@ -131,5 +131,18 @@
         </form>
     </div>
 
+    <script>
+document.addEventListener("DOMContentLoaded", () => {
+    const form = document.getElementById("survey-form");
+    form.addEventListener("submit", function(e) {
+        e.preventDefault(); // Prevent default form submission
+
+        // Optional: Send data to Google Sheets here if needed
+
+        // Redirect to thankyou.html
+        window.location.href = "thankyou.html";
+    });
+});
+    </script>
 </body>
 </html>
