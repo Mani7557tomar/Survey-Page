@@ -13,7 +13,6 @@
             padding: 0;
             color: #333;
         }
-
         .container {
             max-width: 500px;
             margin: 50px auto;
@@ -22,31 +21,26 @@
             border-radius: 15px;
             box-shadow: 0 8px 16px rgba(0,0,0,0.1);
         }
-
         .logo {
             display: block;
             margin: 0 auto 20px;
             text-align: center;
         }
-
         .logo img {
             max-width: 50px;
         }
-
         h1 {
             text-align: center;
             font-size: 1.8rem;
             margin-bottom: 10px;
             color: #333;
         }
-
         label {
             display: block;
             font-weight: 600;
             margin-top: 15px;
             margin-bottom: 5px;
         }
-
         input[type="text"], input[type="tel"], textarea, select {
             width: 100%;
             padding: 12px;
@@ -57,7 +51,6 @@
             background: #f9f9f9;
             transition: border-color 0.3s;
         }
-
         input[type="text"]:focus,
         input[type="tel"]:focus,
         textarea:focus,
@@ -65,7 +58,6 @@
             border-color: #ff6a88;
             outline: none;
         }
-
         .submit-btn {
             width: 100%;
             background: #ff6a88;
@@ -78,11 +70,9 @@
             margin-top: 20px;
             transition: background 0.3s;
         }
-
         .submit-btn:hover {
             background: #ff4f70;
         }
-
         @media (max-width: 500px) {
             .container {
                 margin: 20px;
@@ -92,13 +82,12 @@
     </style>
 </head>
 <body>
-
     <div class="container">
         <div class="logo">
             <img src="Assets/file.png" alt="The Food Corner Logo">
         </div>
         <h1>Customer Interest Survey</h1>
-        <form id="surveyForm">
+        <form id="interest-form">
             <label for="name">Full Name</label>
             <input type="text" id="name" name="name" placeholder="Your name" required>
 
@@ -132,12 +121,12 @@
     </div>
 
     <script>
-        document.getElementById('surveyForm').addEventListener('submit', function(e) {
-            e.preventDefault(); // prevent default form submission
-            // OPTIONAL: Collect form data or send it via fetch/ajax here if needed
-            window.location.href = "thankyou.html"; // redirect to Thank You page
+        document.getElementById('interest-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent default form submission
+            // OPTIONAL: collect form data and send to Google Sheets here using fetch() or FormSubmit etc.
+            // For now, we just redirect
+            window.location.href = 'thankyou.html';
         });
     </script>
-
 </body>
 </html>
