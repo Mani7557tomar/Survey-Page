@@ -2,116 +2,103 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Thank You</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;100&display=swap" rel="stylesheet">
+  <title>Thank You!</title>
   <style>
     body {
-      background: linear-gradient(135deg, #ff9a8b, #ff6a88, #ff99ac);
+      background: linear-gradient(135deg, #fff6e5, #ffe9e3);
       font-family: 'Poppins', sans-serif;
       color: #333;
-      margin: 0;
-      padding: 0;
-      min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
-      text-align: center;
+      height: 100vh;
+      margin: 0;
       overflow: hidden;
-      position: relative;
     }
 
     .container {
-      background: rgba(255, 255, 255, 0.95);
-      padding: 20px;
-      border-radius: 15px;
-      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-      width: 90%;
-      max-width: 350px;
+      background: rgba(255, 255, 255, 0.9);
+      padding: 40px 30px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      max-width: 600px;
+      text-align: center;
       z-index: 1;
     }
 
-    h1 {
-      font-size: 2rem;
+    .container h1 {
+      font-size: 3rem;
       color: #ff6a88;
-      margin-bottom: 15px;
-    }
-
-    p {
-      font-size: 1.2rem;
-      color: #555;
       margin-bottom: 20px;
     }
 
-    .close-btn {
+    .container p {
+      font-size: 1.3rem;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .container a {
+      text-decoration: none;
       background: #ff6a88;
       color: #fff;
-      border: none;
-      padding: 12px 24px;
-      font-size: 1rem;
+      padding: 12px 30px;
       border-radius: 8px;
-      cursor: pointer;
-      text-decoration: none;
+      font-weight: bold;
       transition: background 0.3s;
-      width: 100%;
+      display: inline-block;
     }
 
-    .close-btn:hover {
-      background: #ff4f70;
+    .container a:hover {
+      background: #ff9a8b;
     }
 
-    .food-illustrations {
+    .animation {
       position: absolute;
+      width: 100%;
+      height: 100%;
       top: 0;
       left: 0;
-      right: 0;
-      bottom: 0;
-      background-image: url('Assets/food-pattern.png'); /* Replace with your food pattern image */
-      background-size: contain;
-      background-repeat: repeat;
-      opacity: 0.2;
-      animation: moveBackground 20s linear infinite;
+      overflow: hidden;
       z-index: 0;
+      pointer-events: none;
     }
 
-    @keyframes moveBackground {
-      0% { background-position: 0 0; }
-      100% { background-position: 1000px 1000px; }
+    .animation img {
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      animation: float 6s linear infinite;
     }
 
-    @media (max-width: 480px) {
-      .container {
-        padding: 15px;
-        max-width: 300px;
+    @keyframes float {
+      0% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 0;
       }
-
-      h1 {
-        font-size: 1.8rem;
+      50% {
+        opacity: 1;
       }
-
-      p {
-        font-size: 1.1rem;
-      }
-
-      .close-btn {
-        padding: 10px 20px;
-        font-size: 1rem;
+      100% {
+        transform: translateY(-10vh) rotate(360deg);
+        opacity: 0;
       }
     }
   </style>
 </head>
 <body>
-  <div class="food-illustrations"></div>
-  <div class="container">
-    <h1>Thank You!</h1>
-    <p>Your response has been recorded. We appreciate your feedback.</p>
-    <button class="close-btn" onclick="goHome()">Go to Home</button>
+  <div class="animation">
+    <img src="https://cdn-icons-png.flaticon.com/512/135/135620.png" style="left: 10%; animation-delay: 0s;">
+    <img src="https://cdn-icons-png.flaticon.com/512/135/135620.png" style="left: 30%; animation-delay: 2s;">
+    <img src="https://cdn-icons-png.flaticon.com/512/135/135620.png" style="left: 50%; animation-delay: 4s;">
+    <img src="https://cdn-icons-png.flaticon.com/512/135/135620.png" style="left: 70%; animation-delay: 1s;">
+    <img src="https://cdn-icons-png.flaticon.com/512/135/135620.png" style="left: 90%; animation-delay: 3s;">
   </div>
 
-  <script>
-    function goHome() {
-      window.location.href = 'index.html'; // Change this to your home page if needed
-    }
-  </script>
+  <div class="container">
+    <h1>Thank You!</h1>
+    <p>Your response has been submitted. We appreciate your feedback and look forward to serving you again soon!</p>
+    <a href="index.html">Go Back Home</a>
+  </div>
 </body>
 </html>
