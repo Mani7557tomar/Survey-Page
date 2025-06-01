@@ -5,7 +5,7 @@
   <title>Thank You!</title>
   <style>
     body {
-      background: #ffe3e6; /* Same background as before */
+      background: #ffe3e6;
       font-family: 'Poppins', sans-serif;
       color: #333;
       display: flex;
@@ -18,7 +18,7 @@
 
     .container {
       background: rgba(255, 255, 255, 0.9);
-      padding: 60px 50px; /* Increased padding */
+      padding: 60px 50px;
       border-radius: 20px;
       box-shadow: 0 10px 30px rgba(0,0,0,0.1);
       max-width: 800px;
@@ -27,13 +27,13 @@
     }
 
     .container h1 {
-      font-size: 5.5rem; /* Larger heading */
+      font-size: 5.5rem;
       color: #ff6a88;
       margin-bottom: 30px;
     }
 
     .container p {
-      font-size: 3.2rem; /* Even bigger text */
+      font-size: 3.2rem;
       line-height: 1.8;
       margin-bottom: 30px;
     }
@@ -107,11 +107,16 @@
   <script>
     const images = document.querySelectorAll('.animation img');
     images.forEach(img => {
-      const left = Math.random() * 100;
-      const delay = Math.random() * 5; // 0 to 5 seconds
-      const duration = 5 + Math.random() * 3; // 5 to 8 seconds
+      // Random horizontal position
+      const left = Math.random() * 100; // 0% to 100%
       img.style.left = `${left}%`;
+
+      // Random animation delay
+      const delay = Math.random() * 5; // 0 to 5 seconds
       img.style.animationDelay = `${delay}s`;
+
+      // Random animation duration for variety
+      const duration = 5 + Math.random() * 3; // 5 to 8 seconds
       img.style.animationDuration = `${duration}s`;
     });
   </script>
