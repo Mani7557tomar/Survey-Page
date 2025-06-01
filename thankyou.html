@@ -2,103 +2,72 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Thank You!</title>
+  <title>Thank You</title>
   <style>
     body {
-      background: linear-gradient(135deg, #fff6e5, #ffe9e3);
+      margin: 0;
       font-family: 'Poppins', sans-serif;
-      color: #333;
+      background: linear-gradient(135deg, #ff9a8b, #ff6a88, #ff99ac);
       display: flex;
       align-items: center;
       justify-content: center;
       height: 100vh;
-      margin: 0;
       overflow: hidden;
     }
 
     .container {
       background: rgba(255, 255, 255, 0.9);
-      padding: 40px 30px;
-      border-radius: 20px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-      max-width: 600px;
+      border-radius: 15px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+      padding: 50px;
+      max-width: 500px;
+      width: 90%;
       text-align: center;
-      z-index: 1;
+      animation: fadeIn 1s ease-out;
     }
 
-    .container h1 {
-      font-size: 3rem;
-      color: #ff6a88;
+    h1 {
+      font-size: 3em;
+      color: #333;
       margin-bottom: 20px;
     }
 
-    .container p {
-      font-size: 1.3rem;
+    p {
+      font-size: 1.2em;
+      color: #555;
       line-height: 1.6;
-      margin-bottom: 20px;
     }
 
-    .container a {
-      text-decoration: none;
-      background: #ff6a88;
-      color: #fff;
-      padding: 12px 30px;
-      border-radius: 8px;
-      font-weight: bold;
-      transition: background 0.3s;
-      display: inline-block;
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
-    .container a:hover {
-      background: #ff9a8b;
-    }
-
-    .animation {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      top: 0;
-      left: 0;
-      overflow: hidden;
-      z-index: 0;
-      pointer-events: none;
-    }
-
-    .animation img {
+    /* Optional: add floating food icons with CSS animation (like sparkles) */
+    .food-icon {
       position: absolute;
       width: 40px;
       height: 40px;
+      opacity: 0.4;
       animation: float 6s linear infinite;
     }
 
     @keyframes float {
-      0% {
-        transform: translateY(100vh) rotate(0deg);
-        opacity: 0;
-      }
-      50% {
-        opacity: 1;
-      }
-      100% {
-        transform: translateY(-10vh) rotate(360deg);
-        opacity: 0;
-      }
+      0% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-20px) rotate(180deg); }
+      100% { transform: translateY(0) rotate(360deg); }
     }
   </style>
 </head>
 <body>
-  <div class="animation">
-    <img src="https://cdn-icons-png.flaticon.com/512/135/135620.png" style="left: 10%; animation-delay: 0s;">
-    <img src="https://cdn-icons-png.flaticon.com/512/135/135620.png" style="left: 30%; animation-delay: 2s;">
-    <img src="https://cdn-icons-png.flaticon.com/512/135/135620.png" style="left: 50%; animation-delay: 4s;">
-    <img src="https://cdn-icons-png.flaticon.com/512/135/135620.png" style="left: 70%; animation-delay: 1s;">
-    <img src="https://cdn-icons-png.flaticon.com/512/135/135620.png" style="left: 90%; animation-delay: 3s;">
-  </div>
+  <!-- Optional: floating food icons -->
+  <img src="https://cdn-icons-png.flaticon.com/512/1046/1046784.png" class="food-icon" style="top: 10%; left: 20%;" />
+  <img src="https://cdn-icons-png.flaticon.com/512/1046/1046864.png" class="food-icon" style="top: 30%; left: 80%;" />
+  <img src="https://cdn-icons-png.flaticon.com/512/1046/1046865.png" class="food-icon" style="top: 70%; left: 40%;" />
 
   <div class="container">
     <h1>Thank You!</h1>
-    <p>Your response has been submitted. We appreciate your feedback and look forward to serving you again soon!</p>
-    <a href="index.html">Go Back Home</a>
+    <p>Your response has been recorded. We appreciate your feedback and support. Have a wonderful day!</p>
   </div>
 </body>
 </html>
