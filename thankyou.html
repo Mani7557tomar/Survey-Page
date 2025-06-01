@@ -5,7 +5,7 @@
   <title>Thank You!</title>
   <style>
     body {
-      background: #ffe3e6;
+      background: #ffe3e6; /* Same background as before */
       font-family: 'Poppins', sans-serif;
       color: #333;
       display: flex;
@@ -18,7 +18,7 @@
 
     .container {
       background: rgba(255, 255, 255, 0.9);
-      padding: 60px 50px;
+      padding: 60px 50px; /* Increased padding */
       border-radius: 20px;
       box-shadow: 0 10px 30px rgba(0,0,0,0.1);
       max-width: 800px;
@@ -27,13 +27,13 @@
     }
 
     .container h1 {
-      font-size: 5.5rem;
+      font-size: 5.5rem; /* Larger heading */
       color: #ff6a88;
       margin-bottom: 30px;
     }
 
     .container p {
-      font-size: 3.2rem;
+      font-size: 3.2rem; /* Even bigger text */
       line-height: 1.8;
       margin-bottom: 30px;
     }
@@ -69,33 +69,9 @@
       position: absolute;
       width: 90px;
       height: 90px;
-      animation: float 5s linear infinite;
-      animation-fill-mode: forwards;
-    }
-
-    .animation img:nth-child(1) {
-      left: 10%;
-      animation-delay: 0s;
-    }
-
-    .animation img:nth-child(2) {
-      left: 30%;
-      animation-delay: 1s;
-    }
-
-    .animation img:nth-child(3) {
-      left: 50%;
-      animation-delay: 2s;
-    }
-
-    .animation img:nth-child(4) {
-      left: 70%;
-      animation-delay: 3s;
-    }
-
-    .animation img:nth-child(5) {
-      left: 90%;
-      animation-delay: 0s; /* Starts immediately */
+      animation-name: float;
+      animation-iteration-count: infinite;
+      animation-timing-function: linear;
     }
 
     @keyframes float {
@@ -103,7 +79,7 @@
         transform: translateY(100vh) rotate(0deg);
         opacity: 0;
       }
-      10% {
+      50% {
         opacity: 1;
       }
       100% {
@@ -127,5 +103,17 @@
     <p>Your response has been submitted successfully. <br> We appreciate your feedback and look forward to serving you again soon!</p>
     <a href="index.html">Go Back Home</a>
   </div>
+
+  <script>
+    const images = document.querySelectorAll('.animation img');
+    images.forEach(img => {
+      const left = Math.random() * 100;
+      const delay = Math.random() * 5; // 0 to 5 seconds
+      const duration = 5 + Math.random() * 3; // 5 to 8 seconds
+      img.style.left = `${left}%`;
+      img.style.animationDelay = `${delay}s`;
+      img.style.animationDuration = `${duration}s`;
+    });
+  </script>
 </body>
 </html>
