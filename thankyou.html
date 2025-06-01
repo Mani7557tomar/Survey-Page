@@ -14,6 +14,7 @@
       justify-content: center;
       height: 100vh;
       overflow: hidden;
+      position: relative;
     }
 
     .container {
@@ -25,6 +26,7 @@
       width: 400px;
       text-align: center;
       animation: fadeIn 1s ease-out;
+      z-index: 2;
     }
 
     h1 {
@@ -56,10 +58,11 @@
 
     .food-icon {
       position: absolute;
-      width: 30px;
-      height: 30px;
-      opacity: 0.3;
-      animation: float 6s linear infinite;
+      width: 40px;
+      height: 40px;
+      opacity: 0.2;
+      animation: float 8s linear infinite;
+      z-index: 1;
     }
 
     @keyframes float {
@@ -70,10 +73,15 @@
   </style>
 </head>
 <body>
-  <!-- Floating food icons -->
-  <img src="https://cdn-icons-png.flaticon.com/512/1046/1046784.png" class="food-icon" style="top: 10%; left: 20%;" />
-  <img src="https://cdn-icons-png.flaticon.com/512/1046/1046864.png" class="food-icon" style="top: 30%; left: 80%;" />
-  <img src="https://cdn-icons-png.flaticon.com/512/1046/1046865.png" class="food-icon" style="top: 70%; left: 40%;" />
+  <!-- Floating food icons everywhere -->
+  <img src="https://cdn-icons-png.flaticon.com/512/1046/1046784.png" class="food-icon" style="top: 10%; left: 20%;">
+  <img src="https://cdn-icons-png.flaticon.com/512/1046/1046864.png" class="food-icon" style="top: 25%; left: 80%;">
+  <img src="https://cdn-icons-png.flaticon.com/512/1046/1046865.png" class="food-icon" style="top: 70%; left: 40%;">
+  <img src="https://cdn-icons-png.flaticon.com/512/1046/1046866.png" class="food-icon" style="top: 50%; left: 10%;">
+  <img src="https://cdn-icons-png.flaticon.com/512/1046/1046867.png" class="food-icon" style="top: 80%; left: 75%;">
+  <img src="https://cdn-icons-png.flaticon.com/512/1046/1046868.png" class="food-icon" style="top: 60%; left: 55%;">
+  <img src="https://cdn-icons-png.flaticon.com/512/1046/1046869.png" class="food-icon" style="top: 20%; left: 50%;">
+  <img src="https://cdn-icons-png.flaticon.com/512/1046/1046870.png" class="food-icon" style="top: 40%; left: 30%;">
 
   <div class="container">
     <h1>Thank You!</h1>
