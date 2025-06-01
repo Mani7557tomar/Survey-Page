@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Thank You</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
       margin: 0;
@@ -19,23 +20,33 @@
       background: rgba(255, 255, 255, 0.9);
       border-radius: 15px;
       box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-      padding: 50px;
-      max-width: 600px;
-      width: 90%;
+      padding: 30px 20px;
+      max-width: 90%;
+      width: 400px;
       text-align: center;
       animation: fadeIn 1s ease-out;
     }
 
     h1 {
-      font-size: 3em;
+      font-size: 2.2em;
       color: #333;
-      margin-bottom: 20px;
+      margin-bottom: 15px;
     }
 
     p {
-      font-size: 1.5em; /* Increased font size */
+      font-size: 1.2em;
       color: #555;
-      line-height: 1.8;
+      line-height: 1.6;
+      word-wrap: break-word;
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 2em;
+      }
+      p {
+        font-size: 1.1em;
+      }
     }
 
     @keyframes fadeIn {
@@ -45,9 +56,9 @@
 
     .food-icon {
       position: absolute;
-      width: 40px;
-      height: 40px;
-      opacity: 0.4;
+      width: 30px;
+      height: 30px;
+      opacity: 0.3;
       animation: float 6s linear infinite;
     }
 
@@ -59,7 +70,7 @@
   </style>
 </head>
 <body>
-  <!-- Floating food icons (optional) -->
+  <!-- Floating food icons -->
   <img src="https://cdn-icons-png.flaticon.com/512/1046/1046784.png" class="food-icon" style="top: 10%; left: 20%;" />
   <img src="https://cdn-icons-png.flaticon.com/512/1046/1046864.png" class="food-icon" style="top: 30%; left: 80%;" />
   <img src="https://cdn-icons-png.flaticon.com/512/1046/1046865.png" class="food-icon" style="top: 70%; left: 40%;" />
