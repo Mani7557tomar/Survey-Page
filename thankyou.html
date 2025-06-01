@@ -40,6 +40,23 @@
       color: #555;
       line-height: 1.6;
       word-wrap: break-word;
+      margin-bottom: 20px;
+    }
+
+    .close-btn {
+      background: #ff6a88;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 25px;
+      font-size: 1.1em;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      transition: background 0.3s;
+    }
+
+    .close-btn:hover {
+      background: #ff4c66;
     }
 
     @media (max-width: 480px) {
@@ -48,6 +65,10 @@
       }
       p {
         font-size: 1.1em;
+      }
+      .close-btn {
+        font-size: 1em;
+        padding: 10px 16px;
       }
     }
 
@@ -86,6 +107,17 @@
   <div class="container">
     <h1>Thank You!</h1>
     <p>Your response has been recorded. We appreciate your feedback and support. Have a wonderful day!</p>
+    <button class="close-btn" onclick="closeWindow()">Close</button>
   </div>
+
+  <script>
+    function closeWindow() {
+      if (window.opener) {
+        window.close();
+      } else {
+        window.location.href = '/'; // Replace with your home screen URL if needed
+      }
+    }
+  </script>
 </body>
 </html>
