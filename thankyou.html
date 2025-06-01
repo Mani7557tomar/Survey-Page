@@ -1,112 +1,129 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Thank You!</title>
-  <style>
-    body {
-      background: #ffe3e6;
-      font-family: 'Poppins', sans-serif;
-      color: #333;
-      display: flex;
-      align-items: flex-start; /* align to the top */
-      justify-content: center;
-      height: 100vh;
-      margin: 0;
-      overflow: hidden;
-      padding-top: 50px; /* push content a bit down */
-    }
+  <meta charset="UTF-8">
+  <title>Thank You!</title>
+  <style>
+    body {
+      background: #ffe3e6;
+      font-family: 'Poppins', sans-serif;
+      color: #333;
+      height: 100vh;
+      margin: 0;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
-    .container {
-      background: rgba(255, 255, 255, 0.9);
-      padding: 60px 50px;
-      border-radius: 20px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-      max-width: 800px;
-      text-align: center;
-      z-index: 1;
-    }
+    .container {
+      position: relative;
+      background: rgba(255, 255, 255, 0.9);
+      padding: 60px 50px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      max-width: 800px;
+      text-align: center;
+      z-index: 1;
+      overflow: hidden;
+    }
 
-    .container h1 {
-      font-size: 5.5rem;
-      color: #ff6a88;
-      margin-bottom: 30px;
-    }
+    .container h1 {
+      font-size: 5.5rem;
+      color: #ff6a88;
+      margin-bottom: 30px;
+    }
 
-    .container p {
-      font-size: 3.2rem;
-      line-height: 1.8;
-      margin-bottom: 30px;
-    }
+    .container p {
+      font-size: 3.2rem;
+      line-height: 1.8;
+      margin-bottom: 30px;
+    }
 
-    .container a {
-      text-decoration: none;
-      background: #ff6a88;
-      color: #fff;
-      padding: 30px 30px;
-      border-radius: 18px;
-      font-weight: bold;
-      font-size: 2.5rem;
-      transition: background 0.3s;
-      display: inline-block;
-    }
+    .container a {
+      text-decoration: none;
+      background: #ff6a88;
+      color: #fff;
+      padding: 30px 30px;
+      border-radius: 18px;
+      font-weight: bold;
+      font-size: 2.5rem;
+      transition: background 0.3s;
+      display: inline-block;
+    }
 
-    .container a:hover {
-      background: #ff9a8b;
-    }
+    .container a:hover {
+      background: #ff9a8b;
+    }
 
-    .animation {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      top: 0;
-      left: 0;
-      overflow: hidden;
-      z-index: 0;
-      pointer-events: none;
-    }
+    .background {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
 
-    .animation img {
-      position: absolute;
-      bottom: -100px; /* start from below the viewport */
-      width: 90px;
-      height: 90px;
-      animation: float 8s linear infinite;
-    }
+    .background img {
+      position: absolute;
+      width: 90px;
+      height: 90px;
+      opacity: 0;
+      animation-name: float;
+      animation-iteration-count: infinite;
+      animation-timing-function: linear;
+    }
 
-    @keyframes float {
-      0% {
-        transform: translateY(0) rotate(0deg);
-        opacity: 0;
-      }
-      10% {
-        opacity: 1;
-      }
-      90% {
-        opacity: 1;
-      }
-      100% {
-        transform: translateY(-110vh) rotate(360deg);
-        opacity: 0;
-      }
-    }
-  </style>
+    @keyframes float {
+      0% {
+        transform: translateY(20vh) rotate(0deg);
+        opacity: 0;
+      }
+      10% {
+        opacity: 1;
+      }
+      90% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-120%) rotate(360deg);
+        opacity: 0;
+      }
+    }
+  </style>
 </head>
 <body>
-  <div class="animation">
-    <img src="Assets/cutlery.png">
-    <img src="Assets/fast-delivery.png">
-    <img src="Assets/healthy-heart.png">
-    <img src="Assets/pizza.png">
-    <img src="Assets/restaurant (1).png">
-    <img src="Assets/restaurant.png">
-    <img src="Assets/salad.png">
-  </div>
+  <div class="container">
+    <div class="background">
+      <img src="Assets/cutlery.png" alt="Restaurant Icon">
+      <img src="Assets/salad.png" alt="Restaurant Icon">
+      <img src="Assets/restaurant.png" alt="Restaurant Icon">
+      <img src="Assets/restaurant (1).png" alt="Restaurant Icon">
+      <img src="Assets/pizza.png" alt="Restaurant Icon">
+    </div>
+    <h1>Thank You!</h1>
+    <p>Your response has been submitted successfully. <br> We appreciate your feedback and look forward to serving you again soon!</p>
+    <a href="index.html">Go Back Home</a>
+  </div>
 
-  <div class="container">
-    <h1>Thank You!</h1>
-    <p>Your response has been submitted successfully. <br> We appreciate your feedback and look forward to serving you again soon!</p>
-    <a href="index.html">Go Back Home</a>
-  </div>
+  <script>
+    const images = document.querySelectorAll('.background img');
+    images.forEach(img => {
+      // Random horizontal position
+      const left = Math.random() * 90;
+      img.style.left = `${left}%`;
+
+      // Random animation delay
+      const delay = Math.random() * 5;
+      img.style.animationDelay = `${delay}s`;
+
+      // Random animation duration
+      const duration = 8 + Math.random() * 4;
+      img.style.animationDuration = `${duration}s`;
+    });
+  </script>
 </body>
 </html>
